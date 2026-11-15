@@ -1,0 +1,83 @@
+name: validate
+
+# Runs the unit tests and tools/validate.py on every push. On main, and only
+# when validation passed, it publishes schedule.json to GitHub Pages with an
+# Actions deployment (Settings -> Pages -> Source: "GitHub Actions"). A failed
+# validation never reaches the deploy job, so Pages keeps serving the last
+# good file and the app keeps its cached copy (research.md §6-5).
+#
+# The Pages artifact holds schedule.json only (no ops/ evidence, no tools).
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: python -I -m unittest discover -s tests -v
+
+      - name: Validate schedule.json
+        run: python -I tools/validate.py schedule.json
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}schedule.json
+    steps:
+      - name: Check out
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+
+      - name: Build the site folder
+        run: |
+          set -eu
+          mkdir -p "${RUNNER_TEMP}/site"
+          cp schedule.json "${RUNNER_TEMP}/site/schedule.json"
+          ls -l "${RUNNER_TEMP}/site"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload the Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

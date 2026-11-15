@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-15T01:00:00Z",
+  "programs": [
+    {
+      "id": "hope1",
+      "name": "희망저축계좌Ⅰ",
+      "summary": {
+        "who": "생계·의료급여를 받는 가구 중 일하는 가구원이 있는 가구",
+        "amount": "본인 월 10만원 이상 저축 시 정부 지원 월 30만원 적립 (3년, 2026년 지침 기준)",
+        "where": "주소지 읍·면·동 주민센터 방문",
+        "bring": ["소득 증빙 서류(재직증명서·일용근로내역서·급여이체내역 등)"],
+        "caution": "지원금은 3년 안에 생계·의료급여를 벗어나는(탈수급) 것이 조건이에요."
+      },
+      "channels": ["visit"],
+      "eligibility": {
+        "anyBenefit": ["livelihood", "medical"],
+        "needsEarner": true,
+        "anyMember": [],
+        "softMiss": [],
+        "checkNote": "가구 근로·사업소득이 기준 중위소득 40%의 60% 이상이어야 해요."
+      },
+      "sources": [
+        {"label": "2026 자산형성지원 통장사업 안내(지침)", "url": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf"},
+        {"label": "자산형성포털 사업소개", "url": "https://hope.welfareinfo.or.kr/bsns/bsnsIntrcnAcc.do"}
+      ],
+      "lastChecked": "2026-11-15"
+    },
+    {
+      "id": "hope2",
+      "name": "희망저축계좌Ⅱ",
+      "summary": {
+        "who": "주거·교육급여를 받는 가구 또는 차상위 가구 중 일하는 가구원이 있는 가구",
+        "amount": "본인 월 10만원 이상 저축 시 정부 지원 1년차 월 10만·2년차 20만·3년차 30만원 (2026년 지침 기준)",
+        "where": "주소지 읍·면·동 주민센터 방문",
+        "bring": ["소득 증빙 서류(재직증명서·일용근로내역서·급여이체내역 등)"],
+        "caution": "만기 지원금은 자립역량교육 이수와 자금사용계획서 제출이 조건이에요."
+      },
+      "channels": ["visit"],
+      "eligibility": {
+        "anyBenefit": ["housing", "education", "nearPoor"],
+        "needsEarner": true,
+        "anyMember": [],
+        "softMiss": [],
+        "checkNote": "가구당 1명, 통장마다 한 번만 지원돼요."
+      },
+      "sources": [
+        {"label": "2026 자산형성지원 통장사업 안내(지침)", "url": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf"},
+        {"label": "자산형성포털 사업소개", "url": "https://hope.welfareinfo.or.kr/bsns/bsnsIntrcnAcc.do"}
+      ],
+      "lastChecked": "2026-11-15"
+    },
+    {
+      "id": "eduBenefit",
+      "name": "교육급여 (초·중·고)",
+      "summary": {
+        "who": "기준 중위소득 50% 이하 가구의 초·중·고 학생",
+        "amount": "교육활동지원비 연 1회 초 502,000원·중 699,000원·고 860,000원 (2026년 기준)",
+        "where": "읍·면·동 주민센터 방문, 복지로, 교육비 원클릭",
+        "bring": [],
+        "caution": "연중 신청할 수 있지만 신청일부터 지원해서 3월 신청을 권해요. 이미 지원받는 학생은 다시 신청하지 않아도 돼요."
+      },
+      "channels": ["visit", "online", "site"],
+      "eligibility": {
+        "anyBenefit": ["education"],
+        "needsEarner": false,
+        "anyMember": ["student"],
+        "softMiss": ["benefit"],
+        "checkNote": "교육급여를 아직 안 받아도 기준 중위소득 50% 이하 가구 학생이면 대상이 될 수 있어요."
+      },
+      "sources": [
+        {"label": "2026 교육급여·교육비 신청 보도자료", "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156746765"},
+        {"label": "교육비 원클릭 신청시스템", "url": "https://oneclick.neis.go.kr/"}
+      ],
+      "lastChecked": "2026-11-15"
+    },
+    {
+      "id": "eitc",
+      "name": "근로·자녀장려금",
+      "summary": {
+        "who": "근로·사업·종교인 소득이 있고 총소득·재산이 기준 아래인 가구",
+        "amount": "근로장려금 최대 단독 165만·홑벌이 285만·맞벌이 330만원, 자녀장려금 자녀 1명당 최대 100만원 (2026년 안내 기준)",
+        "where": "홈택스(PC·모바일) 또는 ARS 전화 1544-9944",
+        "bring": ["신청안내문(문자)의 개별인증번호 (ARS 신청 때)"],
+        "caution": "근로소득만 있으면 반기 신청과 정기 신청 중 고를 수 있어요. 정기 신청을 놓쳐도 기한 후 신청 기간이 있어요(2026년 6/2~12/1)."
+      },
+      "channels": ["hometax"],
+      "eligibility": {
+        "anyBenefit": [],
+        "needsEarner": true,
+        "anyMember": [],
+        "softMiss": [],
+        "alwaysShowNote": true,
+        "checkNote": "총소득(단독 2,200만·홑벌이 3,200만·맞벌이 4,400만원 미만)과 재산(2.4억원 미만) 기준을 확인하세요."
+      },
+      "sources": [
+        {"label": "근로·자녀장려금 신청기간 및 방법", "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238977&mi=40397"},
+        {"label": "근로·자녀장려금 신청자격", "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7783&mi=2452"}
+      ],
+      "lastChecked": "2026-11-15"
+    },
+    {
+      "id": "youthSaving",
+      "name": "청년내일저축계좌",
+      "summary": {
+        "who": "기준 중위소득 50% 이하 가구의 일하는 청년 (만 15~39세, 근로·사업소득 월 10만원 이상)",
+        "amount": "본인 월 10만원 이상 저축 시 정부 지원 월 30만원 적립 (3년, 2026년 지침 기준)",
+        "where": "복지로 온라인 또는 읍·면·동 주민센터 방문",
+        "bring": ["신분증", "가족관계증명서", "소득 증빙(재직증명서·급여이체내역 등)"],
+        "caution": "1년에 한 번만 모집해요. 만기 지원금은 자립역량교육 이수와 자금사용계획서 제출이 조건이에요."
+      },
+      "channels": ["online", "visit"],
+      "eligibility": {
+        "anyBenefit": ["anyRecipient", "nearPoor"],
+        "needsEarner": true,
+        "anyMember": ["youth"],
+        "softMiss": ["earner"],
+        "checkNote": "청년 본인이 일하고 근로·사업소득이 월 10만원 이상이어야 해요. 2026년부터 차상위 초과 가구 청년은 새로 모집하지 않아요."
+      },
+      "sources": [
+        {"label": "복지로 청년내일저축계좌", "url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00000060"},
+        {"label": "2026 자산형성지원 통장사업 안내(지침)", "url": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf"}
+      ],
+      "lastChecked": "2026-11-15"
+    },
+    {
+      "id": "energyVoucher",
+      "name": "에너지바우처",
+      "summary": {
+        "who": "생계·의료·주거·교육급여 수급 세대 중 노인·영유아·장애인·임산부 등이 있는 세대",
+        "amount": "세대원 수에 따라 연 295,200원(1인)~701,300원(4인 이상) (2026년 기준)",
+        "where": "주소지 읍·면·동 주민센터 방문 또는 복지로 온라인",
+        "bring": [],
+        "caution": "2026년 바우처 사용 기간은 2026년 7월 1일~2027년 5월 31일이에요."
+      },
+      "channels": ["visit", "online"],
+      "eligibility": {
+        "anyBenefit": ["livelihood", "medical", "housing", "education"],
+        "needsEarner": false,
+        "anyMember": ["vulnerable"],
+        "softMiss": ["member"],
+        "checkNote": "중증·희귀·중증난치질환자, 한부모가족, 소년소녀가정, 다자녀 세대도 대상이 될 수 있어요."
+      },
+      "sources": [
+        {"label": "에너지바우처 신청안내", "url": "https://www.energyv.or.kr/info/apl_info.do"},
+        {"label": "에너지바우처란?", "url": "https://www.energyv.or.kr/info/support_info.do"}
+      ],
+      "lastChecked": "2026-11-15"
+    },
+    {
+      "id": "cultureCard",
+      "name": "문화누리카드",
+      "summary": {
+        "who": "6세 이상 기초생활수급자·차상위계층 (2020년 12월 31일 이전 출생)",
+        "amount": "1인당 연 15만원, 2008~2013년생·1962~1966년생은 1만원 추가 (2026년 기준)",
+        "where": "주민센터 방문, 문화누리 누리집·모바일 앱, 전화 ARS",
+        "bring": [],
+        "caution": "남은 금액은 2026년 12월 31일이 지나면 사라져요(다음 해로 넘어가지 않음). 지역 예산이 떨어지면 발급이 일찍 끝날 수 있어요."
+      },
+      "channels": ["visit", "site"],
+      "eligibility": {
+        "anyBenefit": ["anyRecipient", "nearPoor"],
+        "needsEarner": false,
+        "anyMember": [],
+        "softMiss": [],
+        "checkNote": "6세 이상(2020년 12월 31일 이전 출생)만 대상이에요."
+      },
+      "sources": [
+        {"label": "2026 문화누리카드 발급방법 안내", "url": "https://www.mnuri.kr/notice/userNotice/detail.do?nttId=43151"},
+        {"label": "문화누리카드 사용 안내", "url": "https://www.mnuri.kr/useOfCard/useInfo.do"}
+      ],
+      "lastChecked": "2026-11-15"
+    }
+  ],
+  "items": [
+    {"id": "hope1-2026-1", "programId": "hope1", "label": "2026년 1차", "status": "closed", "start": "2026-03-03", "end": "2026-03-13", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15"},
+    {"id": "hope1-2026-2", "programId": "hope1", "label": "2026년 2차", "status": "closed", "start": "2026-06-01", "end": "2026-06-15", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "일부 지역 중단 후 마감"},
+    {"id": "hope1-2026-3", "programId": "hope1", "label": "2026년 3차", "status": "closed", "start": "2026-09-01", "end": "2026-09-14", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "일부 지역 중단 후 마감"},
+    {"id": "hope1-2026-4", "programId": "hope1", "label": "2026년 4차", "status": "partialSuspended", "start": "2026-11-02", "end": "2026-11-16", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "여러 지역이 모집을 멈췄어요. 방문 전 주민센터에 전화로 확인하세요."},
+    {"id": "hope1-2027-1", "programId": "hope1", "label": "2027년 1차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-03", "referenceWindow": {"start": "2026-03-03", "end": "2026-03-13"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+    {"id": "hope1-2027-2", "programId": "hope1", "label": "2027년 2차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-06", "referenceWindow": {"start": "2026-06-01", "end": "2026-06-15"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+    {"id": "hope1-2027-3", "programId": "hope1", "label": "2027년 3차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-09", "referenceWindow": {"start": "2026-09-01", "end": "2026-09-14"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+    {"id": "hope1-2027-4", "programId": "hope1", "label": "2027년 4차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-11", "referenceWindow": {"start": "2026-11-02", "end": "2026-11-16"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+
+    {"id": "hope2-2026-1", "programId": "hope2", "label": "2026년 1차", "status": "closed", "start": "2026-02-02", "end": "2026-02-24", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15"},
+    {"id": "hope2-2026-2", "programId": "hope2", "label": "2026년 2차", "status": "closed", "start": "2026-07-01", "end": "2026-07-27", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "일부 지역 중단 후 마감"},
+    {"id": "hope2-2026-3", "programId": "hope2", "label": "2026년 3차", "status": "closed", "start": "2026-10-01", "end": "2026-10-26", "expectedMonth": null, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "일부 지역 중단 후 마감"},
+    {"id": "hope2-2027-1", "programId": "hope2", "label": "2027년 1차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-02", "referenceWindow": {"start": "2026-02-02", "end": "2026-02-24"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+    {"id": "hope2-2027-2", "programId": "hope2", "label": "2027년 2차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-07", "referenceWindow": {"start": "2026-07-01", "end": "2026-07-27"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+    {"id": "hope2-2027-3", "programId": "hope2", "label": "2027년 3차", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-10", "referenceWindow": {"start": "2026-10-01", "end": "2026-10-26"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+
+    {"id": "eduBenefit-2026-1", "programId": "eduBenefit", "label": "2026년 집중 신청", "status": "closed", "start": "2026-03-03", "end": "2026-03-20", "expectedMonth": null, "sourceUrl": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156746765", "lastChecked": "2026-11-15", "note": "집중 신청 기간이 끝났어요. 신청은 연중 가능해요."},
+    {"id": "eduBenefit-2027-1", "programId": "eduBenefit", "label": "2027년 집중 신청", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-03", "referenceWindow": {"start": "2026-03-03", "end": "2026-03-20"}, "sourceUrl": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156746765", "lastChecked": "2026-11-15", "note": "공식 안내가 나오면 확정돼요."},
+
+    {"id": "eitc-2026-1", "programId": "eitc", "label": "2026년 3월 반기 신청 (2025년 하반기 소득)", "status": "closed", "start": "2026-03-01", "end": "2026-03-16", "expectedMonth": null, "sourceUrl": "https://www.nts.go.kr/nts/na/ntt/selectNttList.do?bbsId=50664", "lastChecked": "2026-11-15"},
+    {"id": "eitc-2026-2", "programId": "eitc", "label": "2026년 정기 신청 (2025년 소득)", "status": "closed", "start": "2026-05-01", "end": "2026-06-01", "expectedMonth": null, "sourceUrl": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238977&mi=40397", "lastChecked": "2026-11-15", "note": "기한 후 신청은 2026년 12월 1일까지예요."},
+    {"id": "eitc-2026-3", "programId": "eitc", "label": "2026년 9월 반기 신청 (2026년 상반기 소득)", "status": "closed", "start": "2026-09-01", "end": "2026-09-15", "expectedMonth": null, "sourceUrl": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238977&mi=40397", "lastChecked": "2026-11-15"},
+    {"id": "eitc-2027-1", "programId": "eitc", "label": "2027년 3월 반기 신청 (2026년 하반기 소득)", "status": "confirmed", "start": "2027-03-01", "end": "2027-03-15", "expectedMonth": null, "sourceUrl": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238977&mi=40397", "lastChecked": "2026-11-15"},
+    {"id": "eitc-2027-2", "programId": "eitc", "label": "2027년 정기 신청 (2026년 소득)", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-05", "referenceWindow": {"start": "2026-05-01", "end": "2026-06-01"}, "sourceUrl": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238977&mi=40397", "lastChecked": "2026-11-15", "note": "공식 안내가 나오면 확정돼요."},
+    {"id": "eitc-2027-3", "programId": "eitc", "label": "2027년 9월 반기 신청 (2027년 상반기 소득)", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-09", "referenceWindow": {"start": "2026-09-01", "end": "2026-09-15"}, "sourceUrl": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=238977&mi=40397", "lastChecked": "2026-11-15", "note": "공식 안내가 나오면 확정돼요."},
+
+    {"id": "youthSaving-2026-1", "programId": "youthSaving", "label": "2026년 모집", "status": "closed", "start": "2026-05-04", "end": "2026-05-20", "expectedMonth": null, "sourceUrl": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00000060", "lastChecked": "2026-11-15"},
+    {"id": "youthSaving-2027-1", "programId": "youthSaving", "label": "2027년 모집", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-05", "referenceWindow": {"start": "2026-05-04", "end": "2026-05-20"}, "sourceUrl": "https://hope.welfareinfo.or.kr/pds/GuideLine.pdf", "lastChecked": "2026-11-15", "note": "2027 지침이 나오면 확정돼요."},
+
+    {"id": "energyVoucher-2026-1", "programId": "energyVoucher", "label": "2026년 신청", "status": "confirmed", "start": "2026-06-15", "end": "2026-12-31", "expectedMonth": null, "sourceUrl": "https://www.energyv.or.kr/info/apl_info.do", "lastChecked": "2026-11-15"},
+    {"id": "energyVoucher-2027-1", "programId": "energyVoucher", "label": "2027년 신청", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-06", "referenceWindow": {"start": "2026-06-15", "end": "2026-12-31"}, "sourceUrl": "https://www.energyv.or.kr/info/apl_info.do", "lastChecked": "2026-11-15", "note": "공식 안내가 나오면 확정돼요."},
+
+    {"id": "cultureCard-2026-1", "programId": "cultureCard", "label": "2026년 발급", "status": "confirmed", "start": "2026-02-02", "end": "2026-11-30", "endTime": "18:00", "expectedMonth": null, "sourceUrl": "https://www.mnuri.kr/notice/userNotice/detail.do?nttId=43151", "lastChecked": "2026-11-15", "note": "마감일은 18시까지예요. 지역 예산이 떨어지면 일찍 끝날 수 있어요."},
+    {"id": "cultureCard-2027-1", "programId": "cultureCard", "label": "2027년 발급", "status": "expected", "start": null, "end": null, "expectedMonth": "2027-02", "referenceWindow": {"start": "2026-02-02", "end": "2026-11-30"}, "sourceUrl": "https://www.mnuri.kr/notice/userNotice/detail.do?nttId=43151", "lastChecked": "2026-11-15", "note": "공식 안내가 나오면 확정돼요."}
+  ]
+}

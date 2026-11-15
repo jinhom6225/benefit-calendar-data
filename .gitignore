@@ -1,0 +1,6 @@
+# Raw browser captures (Aside session output) stay local; only the curated
+# notes in ops/evidence/*.md are committed. This repo is public.
+ops/evidence/raw/
+__pycache__/
+*.pyc
+.DS_Store

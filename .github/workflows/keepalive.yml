@@ -1,0 +1,32 @@
+name: keepalive
+
+# GitHub pauses scheduled workflows of a public repository after 60 days
+# without activity. This data repo can go months without a commit, so this
+# weekly job re-enables the scheduled workflows; re-enabling an enabled
+# workflow is a no-op that counts as activity (same approach as
+# mountain-stamp-data).
+
+on:
+  schedule:
+    - cron: "47 0 * * 1"  # Monday 09:47 KST
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Re-enable the workflows
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          for workflow in stale_check.yml keepalive.yml; do
+            gh api --method PUT "repos/${REPO}/actions/workflows/${workflow}/enable" --silent \
+              && echo "keepalive: ${workflow} re-enabled" \
+              || echo "::warning::keepalive: could not re-enable ${workflow}"
+          done
