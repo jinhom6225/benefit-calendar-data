@@ -136,3 +136,4 @@ python3 -I tools/stale_check.py schedule.json --today 2027-01-20
 ```
 
 파이썬 표준 라이브러리만 쓴다.
+# benefit-calendar-data
